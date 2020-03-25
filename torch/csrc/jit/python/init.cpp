@@ -177,7 +177,7 @@ void initJITBindings(PyObject* module) {
              bool is_dynamic) {
             auto dict = py::cast<std::unordered_map<
                 std::string,
-                std::tuple<Module, Module>>>(qconfig_dict);
+                c10::optional<std::tuple<Module, Module>>>>(qconfig_dict);
             return InsertObservers(module, method_name, dict, inplace, is_dynamic);
           },
           py::arg("module"),
